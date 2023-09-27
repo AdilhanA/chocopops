@@ -48,11 +48,7 @@ function shoot() {
         player1.bullets[i].position.y += moveDistance * Math.sin(player1.bullets[i].angle);
 
         if (player1.bullets[i].position.x <= player2.position.x + hitBox && player1.bullets[i].position.x >= player2.position.x - hitBox && player1.bullets[i].position.y <= player2.position.y + hitBox && player1.bullets[i].position.y >= player2.position.y - hitBox) {
-            console.log(player2.life);
-            if (player2.life > 0)
-                player2.life--;
-            else
-                player2.dead();
+            player2.dead();
         }
     }
 
@@ -61,11 +57,7 @@ function shoot() {
         player2.bullets[i].position.y += moveDistance * Math.sin(player2.bullets[i].angle);
 
         if (player2.bullets[i].position.x <= player1.position.x + hitBox && player2.bullets[i].position.x >= player1.position.x - hitBox && player2.bullets[i].position.y <= player1.position.y + hitBox && player2.bullets[i].position.y >= player1.position.y - hitBox) {
-            scene.remove(player2.bullets[i]);
-            if (player1.life > 0)
-                player1.life--;
-            else
-                player1.dead();
+            player1.dead();
         }
     }
 }
